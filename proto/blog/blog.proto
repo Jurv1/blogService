@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package blog;
+
+option go_package = "bushmanov.blogv1;blogv1";
+
+//BLOG_SERVICE
+service BlogService {
+  rpc GetBlog (GetBlogRequest) returns (GetBlogResponse);
+  rpc GetBlogs (GetBlogsRequest) returns (GetBlogsResponse);
+  rpc CreateBlog (CreateBlogRequest) returns (CreateBlogResponse);
+}
+
+message GetBlogRequest {
+  int64 id = 1;
+}
+
+message GetBlogResponse {
+  string name = 1;
+}
+
+message GetBlogsRequest {
+  string filter = 1;
+}
+
+message GetBlogsResponse {
+  repeated string name = 1;
+}
+
+message CreateBlogRequest {
+  string name = 1;
+}
+
+message CreateBlogResponse {
+  int64 id = 1;
+  string name = 2;
+}
+
+service UserService {
+  rpc MakeMutation (MakeMutationRequest) returns (MakeMutationResponse);
+}
+
+message MakeMutationRequest {
+  string message = 1;
+}
+
+message MakeMutationResponse {
+  string message = 1;
+}
