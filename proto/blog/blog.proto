@@ -35,15 +35,3 @@ message CreateBlogResponse {
   int64 id = 1;
   string name = 2;
 }
-
-service UserService {
-  rpc MakeMutation (MakeMutationRequest) returns (MakeMutationResponse);
-}
-
-message MakeMutationRequest {
-  string message = 1;
-}
-
-message MakeMutationResponse {
-  string message = 1;
-}

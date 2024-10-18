@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "bushmanov.userv1;userv1";
+
+service UserService {
+  rpc MutateUser (MakeMutationRequest) returns (MakeMutationResponse);
+}
+
+message MakeMutationRequest {
+  string message = 1;
+}
+
+message MakeMutationResponse {
+  string message = 1;
+}
